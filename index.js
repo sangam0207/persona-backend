@@ -3,8 +3,13 @@ const axios = require("axios");
 const bodyParser = require("body-parser");
 const { v4: uuidv4 } = require("uuid");
 const dotenv = require("dotenv");
+const cors = require("cors");
+
 dotenv.config();
 const app = express();
+
+// allow all origins (or restrict to your frontend domain)
+app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 8000;
