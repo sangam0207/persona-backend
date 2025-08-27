@@ -47,7 +47,7 @@ app.post("/v1/chat/completions", async (req, res) => {
     // Call your LLM service
     const response = await axios.post(LLM_URL, payload, { headers });
     const data = response.data;
-
+    console.log("LLM response:", data);
     // Extract assistant response text
     const outputText = data.content || data.output || JSON.stringify(data);
 
